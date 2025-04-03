@@ -82,28 +82,25 @@ function updateTile(tile, num) {
 document.addEventListener("keyup",(e) => {
     if (e.code == "ArrowLeft") {
         slideLeft();
-        settwo();
     }
     else if (e.code == "ArrowRight") {
         slideRight();
-        settwo();
     }
     else if (e.code == "ArrowUp") {
         slideUp();
-        settwo();
     }
     else if (e.code == "ArrowDown") {
         slideDown();
-        settwo();
     }
+    if (isGameOver()) {
+        document.getElementById("game-over").style.visibility = "visible";
+    }
+    settwo();
     document.getElementById("score").innerText = score;
     if (score > best) {
         best = score;
     }
     document.getElementById("best-score").innerText = best;
-    if (isGameOver()) {
-        document.getElementById("game-over").style.visibility = "visible";
-    }
 } )
 
 function filterZero(row) {

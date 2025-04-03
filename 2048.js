@@ -202,7 +202,13 @@ function isGameOver() {
 function resetGame() {
     score = 0;
     document.getElementById("score").innerText = score;
-    document.getElementById("board").innerHTML = "";
-    setgame();
+    document.getElementById("board").innerHTML = `<div id="game-over">
+                <div>Game over!</div>
+                <button id="try-again">Try again</button>
+            </div>`;
     document.getElementById("game-over").style.visibility = "hidden";
+    document.getElementById("try-again").addEventListener("click", function() {
+        resetGame();
+    });
+    setgame();
 }
